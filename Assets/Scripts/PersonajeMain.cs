@@ -12,6 +12,7 @@ public class PersonajeMain : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+         Cursor.lockState = CursorLockMode.Locked; 
     }
 
     // Update is called once per frame
@@ -22,10 +23,10 @@ public class PersonajeMain : MonoBehaviour
 
     private void moveryRotar()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 input = new Vector3(h, 0, v).normalized;
+        Vector3 input = new Vector3(x, 0, z).normalized;
 
         //Calculo angulo al que rotarme.
         float anguloRotacion = Mathf.Atan2(input.x, input.z) * Mathf.Rad2Deg + Camera.main.transform.rotation.eulerAngles.y;
